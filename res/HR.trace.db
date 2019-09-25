@@ -13,3 +13,6 @@ INSERT INTO Product(type, manufacturer, name) VALUES ( 'AUDIO', 'Apple', 'iPod' 
 2019-09-24 15:58:40 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCT" not found; SQL statement:
 INSERT INTO Product(type, manufacturer, name) VALUES ( 'AUDIO', 'Apple', 'iPod' ) [42102-199]
+2019-09-25 10:01:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCT" not found; SQL statement:
+INSERT INTO PRODUCT(NAME,TYPE,MANUFACTURER) VALUES('iPod','AUDIO','Apple') [42102-199]
