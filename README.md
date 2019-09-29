@@ -6,8 +6,7 @@ colours are paired and how the items are displayed. I made it partially at schoo
 
 ## Demonstration
 
-<img src="https://i.ibb.co/B3LdX67/oop3003.gif" alt="oop3003" border="0"></a>
-
+![](oop3003.gif)
 ## Documentation
 
 JavaDoc is in the IDE. 
