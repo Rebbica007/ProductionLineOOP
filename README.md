@@ -5,7 +5,8 @@ allows me to demonstrate my knowledge on how to handle buttons, add combo boxes 
 colours are paired and how the items are displayed. I made it partially at school at Florida Gulf Coast University in COP 3003 - Object-Oriented Programming and finished most of it at home.
 
 ## Demonstration
-![Alt text](C:/Desktop/oop3003.gif)
+
+<img src="https://i.ibb.co/B3LdX67/oop3003.gif" alt="oop3003" border="0"></a>
 
 ## Documentation
 
