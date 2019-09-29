@@ -1,3 +1,8 @@
+/* @author - Jana Grunewald
+ * @class - COP 3003 - Object-Oriented Programming
+ * @date created - 23 September 2019
+ */
+
 package sample;
 
 import java.sql.Connection;
@@ -19,6 +24,9 @@ import javafx.scene.control.TextField;
 
 /**
  * The controller is what allows the GUI to have functionality.
+ */
+/* warning: Declaration redundancy, says the package could be private
+however, if you make it private, the GUI will not run.
  */
 public class Controller {
   @FXML public Button AddProduct;

@@ -1,3 +1,8 @@
+/* @author - Jana Grunewald
+* @class - COP 3003 - Object-Oriented Programming
+* @date created - 23 September 2019
+*/
+
 package sample;
 
 import javafx.application.Application;

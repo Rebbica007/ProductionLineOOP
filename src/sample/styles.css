@@ -1,14 +1,23 @@
+/* @author - Jana Grunewald
+* @class - COP 3003 - Object-Oriented Programming
+* @date created - 23 September 2019
+*/
+
 root {
   display: block;
 }
 
+/* I have a warning saying the root selector is not used
+ * even though I need it to have a background.
+ */
 .root {
   -fx-background-image: url("back.jpg");
 }
 
-.button {
-  -fx-effect: dropshadow(three-pass-box, rgba(255, 255, 255, 0.6), 5, 0.0, 0, 1);
-}
+
+/* Says there is a typo for dropShadow and innerShadow. However, that
+ * is the only way to have a drop shadow or inner shadow for the items.
+ */
 
 /* PRODUCT LINE AREA */
 #productLineTab {
