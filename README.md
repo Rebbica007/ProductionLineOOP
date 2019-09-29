@@ -37,7 +37,7 @@ Jana Grunewald
 
 ## License
 
-![](License.txt)
+License is in a text file in the repository.
 
 ## Acknowledgements
 
