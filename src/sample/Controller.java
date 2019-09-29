@@ -22,9 +22,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-/**
- * The controller is what allows the GUI to have functionality.
- */
+/** The controller is what allows the GUI to have functionality. */
 /* warning: Declaration redundancy, says the package could be private
 however, if you make it private, the GUI will not run.
  */
@@ -46,10 +44,10 @@ public class Controller {
   @FXML public Label manufacturer;
   @FXML public Label itemType;
   @FXML public TableView tableView;
-  @FXML  public TableColumn tableViewProduct;
-  @FXML  public TableColumn tableViewAmount;
-  @FXML  public Label existingProducts;
-  @FXML  public Tab produceTab;
+  @FXML public TableColumn tableViewProduct;
+  @FXML public TableColumn tableViewAmount;
+  @FXML public Label existingProducts;
+  @FXML public Tab produceTab;
   @FXML public Label chooseProduct;
   @FXML public ListView productList;
   @FXML public Label chooseQuantity;
@@ -57,25 +55,26 @@ public class Controller {
   @FXML public TextArea productLog;
 
   /**
-   * handleAddButtonAction is the main function for the addProduct button
-   * hard coded to print Product added to the console.
+   * handleAddButtonAction is the main function for the addProduct button hard coded to print
+   * Product added to the console.
    */
   public void handleAddButtonAction() {
 
-    System.out.println("Product added.");
+    System.out.println("Product added."); // hard codes a response.
   }
 
   /**
-   * handleAddRecordAction is the main function for the addRecord button
-   * hard coded to print Record added to the console window.
+   * handleAddRecordAction is the main function for the addRecord button hard coded to print Record
+   * added to the console window.
    */
   public void handleAddRecordAction() {
-    System.out.println("Record added.");
+
+    System.out.println("Record added."); // hard codes a response.
   }
 
   /**
-   * the initialize function allows the GUI to connect to the database
-   * Populates the combo box to be populated with values 1-10
+   * the initialize function allows the GUI to connect to the database Populates the combo box to be
+   * populated with values 1-10
    */
   public void initialize() {
 
@@ -105,11 +104,11 @@ public class Controller {
     } catch (ClassNotFoundException | SQLException e) {
       e.printStackTrace();
     }
-
+    // populates the combo box
     for (int i = 0; i <= 10; i++) {
       ProduceCombo.getItems().add(i);
     }
-
+    // makes a drop down menu with numbers 1-10 and you can choose based of the amount you have.
     ProduceCombo.getSelectionModel().selectFirst();
     ProduceCombo.setEditable(true);
   }
