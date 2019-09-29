@@ -1,13 +1,8 @@
 # ProductionLineOOP
 
-One paragraph of project description goes here.
-Briefly address the 5 W's.
-What is the project?
-Who made it? Did you make it independently or with a team?
-When did you make it? At what level of experience and proficiency were / are you?
-Why did you make it? For fun? For an assignment? How does it relect you as a person?
-Where did you make it? What school / class?
-Note for school project: this may be the only thing someone visiting your page reads. Try to make a great impresison. Make someone want to hire you. This section will also be useful to you in the future to remind you about the project.
+This project is a GUI that allows you to add product names, types and manufactures to the database. This project 
+allows me to demonstrate my knowledge on how to handle buttons, add combo boxes and have a choice box. I made the project (Jana Grunewald) with help from other students across both COP 3003 - Object-Oriented Programming classes. I started this project on 23 September 2019 and has been on going until 28 September 2019. I am at intermediate level with java and at an advanced level with CSS. I made this assignment for COP 3003 - Object-Oriented Programming. This assignment reflects me as a person by the way the 
+colours are paired and how the items are displayed. I made it partially at school at Florida Gulf Coast University in COP 3003 - Object-Oriented Programming and finished most of it at home.
 
 ## Demonstration
 
@@ -15,12 +10,7 @@ Add an animated gif of your program running. You can use ShareX, GIPHY Capture o
 
 ## Documentation
 
-Create a docs folder in your project. If using Java, generate JavaDoc in your IDE. If using C++, use Doxygen. Change repository settings (using Settings at top of page) to use GitHub Pages with your docs folder. Add a link to the javadoc/doxygen index.html file with this markdown: [Text to appear](URL)
-The URL will be YourGitHubUserName.github.io/YourRepositoryName/foldername/filename
-Do not include the docs folder name in your URL.
-Sample: [JavaDoc](https://pv-cop.github.io/PV-README-TEMPLATE/javadoc/index.html)
-
-JavaDoc
+JavaDoc is in the IDE. 
 
 ## Diagrams
 
@@ -29,23 +19,20 @@ The markdown is ![Alt text](relative/path/to/img.png)
 
 ## Getting Started
 
-Instructions to get a copy of the project up and running on someone's local machine for development and testing purposes.
-Note for real project: You want to be able to share your project and enable collaboration.
-Note for school project: You want a potential client or hirer to be able to run your program.
+First you need to download IntelliJ (https://www.google.com/url?q=https%3A%2F%2Fwww.jetbrains.com%2Fidea%2Fdownload%2F&sa=D&sntz=1&usg=AFQjCNE_PgkWWh-ZuOBH6MD2d0a8HcXUWA ) or another IDE that will run JavaFX. You will need Java 11 JDK (https://www.google.com/url?q=https%3A%2F%2Fjdk.java.net%2Farchive%2F&sa=D&sntz=1&usg=AFQjCNGwG_cwrP8Dtz6zkHr2Wxjz1-HGCg ) and SDK (https://www.google.com/url?q=https%3A%2F%2Fgluonhq.com%2Fproducts%2Fjavafx%2F&sa=D&sntz=1&usg=AFQjCNG5akTTb_MlF5BmoCOmRJTChO_cLQ ) to run the project (additionally
+you can use Java 8 JDK and SDK but you will need to change the version under project structure when you open it). You will also need 
+H2 downloaded (https://www.google.com/url?q=https%3A%2F%2Fwww.h2database.com%2Fhtml%2Fmain.html&sa=D&sntz=1&usg=AFQjCNE13ZojBzC3TFQrckdHkhQj-cPn-w ) and Scenebuilder (https://www.google.com/url?q=https%3A%2F%2Fgluonhq.com%2Fproducts%2Fscene-builder%2F&sa=D&sntz=1&usg=AFQjCNFAj9kP87nkoEPWc9GSwux6cctk0w ). After you install IntelliJ, you can download the project and open the main file. You need to make sure you set up H2 to point to the resource folder. After you have everything set up, you should be able to run the project and see the different styles applied to the GUI.
 
 ## Built With
 
- - IDE used
- - Other software used
- - Resources used
-
-Note for school project: Every section is an opportunity to make an impression. You could briefly add what you know about the IDE and describe your development skills.
+ - IntelliJ - This is a new IDE to me. I only know the basics.
+ - Scenebuilder - This is a new software to me. I only know the basics.
+ - H2 dadabase builder - This is a new system to me. I only know the basics.
+ - Java 8/ Java 11 JDK - Java 8 is better for JavaFX
 
 ## Contributing
 
-This section is more important for real projects but is good to include in school projects.
-One of the main purposes of GitHub and similar services is to provide a means for project collaboration.
-Tell someone how they can contribute to this project.
+If you know of a way to make the Tabs highlight when selected, feel free to add it.
 
 ## Author
 
@@ -66,15 +53,25 @@ To choose a license, see https://choosealicense.com/
 
 ## Acknowledgements
 
-  - Web sites utilized
-  - Classmates who helped
-  - Your professor or TA if they helped
+  - Stackoverflow
+  - Shain, Odalys, Kevin, Nick, Kathryn, Owen
+  - Damian, VanSelow
   
 ## History
 
-Information about what has changed.
+The initial commit had just the GUI layout and the ReadMe. After The initial commit, the controller was updated with the button variables. I then made the handleActions for the buttons which are hardcoded to print to the console. I then populated the combobox in the intitialize method after creating the local variable for the combobox. I then added fx:ids to all of the elements in FXML. I then added styles to the GUI using the fx:ids to make each item be a different colour.
 
 ## Key Programming Concepts Utilized
 
-This section would not necessarily be in a real README.
-It is a reference for you and a place to impress potential employers with your knowledge. Identify what concepts you utilize so when you need to use them again you will know that you will find them here. Include a brief description of the concepts in your own words to help you prepare for related interview questions.
+- Learn how to create a JavaFX project in IntelliJ
+- Learn how to share the JavaFX project through IntelliJ to a private GitHub repository.
+- Learn how to write an effective README document.
+- Learn how to write FXML.
+- Learn how to use SceneBuilder to create the outline for the GUI.
+- Learn how to use CSS along with JavaFX to make the GUI your own.
+- Learn how to make quality work.
+- Learn how to style your projects correctly and professionally.
+- Learn how to document your project professionally.
+- Learn how to make labels, combo boxes, text fields, buttons, and choice boxes in FXML.
+- Learn how to use H2 database software and connect the database to your GUI.
+- Learn how to populate a combo box. 
