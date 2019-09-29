@@ -5,8 +5,7 @@ allows me to demonstrate my knowledge on how to handle buttons, add combo boxes 
 colours are paired and how the items are displayed. I made it partially at school at Florida Gulf Coast University in COP 3003 - Object-Oriented Programming and finished most of it at home.
 
 ## Demonstration
-
-Add an animated gif of your program running. You can use ShareX, GIPHY Capture or another tool. https://blog.github.com/2018-06-29-GIF-that-keeps-on-GIFing/ Note for school project: This is a great way for friends and family to easily see your project in action. The markdown is ![Alt text](relative/path/to/img.png)
+![Alt text](C:/Desktop/oop3003.gif)
 
 ## Documentation
 
