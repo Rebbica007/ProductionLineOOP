@@ -7,24 +7,24 @@ colours are paired and how the items are displayed. I made it partially at schoo
 ## Demonstration
 
 ![](oop3003.gif)
+
 ## Documentation
 
 JavaDoc is in the IDE. 
 
 ## Diagrams
+
 <img src="https://i.ibb.co/BNLH0Nq/diagrams.png" alt="diagrams" border="0"></a>
 
 ## Getting Started
 
-First you need to download IntelliJ (https://www.google.com/url?q=https%3A%2F%2Fwww.jetbrains.com%2Fidea%2Fdownload%2F&sa=D&sntz=1&usg=AFQjCNE_PgkWWh-ZuOBH6MD2d0a8HcXUWA ) or another IDE that will run JavaFX. You will need Java 11 JDK (https://www.google.com/url?q=https%3A%2F%2Fjdk.java.net%2Farchive%2F&sa=D&sntz=1&usg=AFQjCNGwG_cwrP8Dtz6zkHr2Wxjz1-HGCg ) and SDK (https://www.google.com/url?q=https%3A%2F%2Fgluonhq.com%2Fproducts%2Fjavafx%2F&sa=D&sntz=1&usg=AFQjCNG5akTTb_MlF5BmoCOmRJTChO_cLQ ) to run the project (additionally
-you can use Java 8 JDK and SDK but you will need to change the version under project structure when you open it). You will also need 
-H2 downloaded (https://www.google.com/url?q=https%3A%2F%2Fwww.h2database.com%2Fhtml%2Fmain.html&sa=D&sntz=1&usg=AFQjCNE13ZojBzC3TFQrckdHkhQj-cPn-w ) and Scenebuilder (https://www.google.com/url?q=https%3A%2F%2Fgluonhq.com%2Fproducts%2Fscene-builder%2F&sa=D&sntz=1&usg=AFQjCNFAj9kP87nkoEPWc9GSwux6cctk0w ). After you install IntelliJ, you can download the project and open the main file. You need to make sure you set up H2 to point to the resource folder. After you have everything set up, you should be able to run the project and see the different styles applied to the GUI.
+First you need to download IntelliJ (https://www.google.com/url?q=https%3A%2F%2Fwww.jetbrains.com%2Fidea%2Fdownload%2F&sa=D&sntz=1&usg=AFQjCNE_PgkWWh-ZuOBH6MD2d0a8HcXUWA ) or another IDE that will run JavaFX. You will need Java 11 JDK (https://www.google.com/url?q=https%3A%2F%2Fjdk.java.net%2Farchive%2F&sa=D&sntz=1&usg=AFQjCNGwG_cwrP8Dtz6zkHr2Wxjz1-HGCg ) and SDK (https://www.google.com/url?q=https%3A%2F%2Fgluonhq.com%2Fproducts%2Fjavafx%2F&sa=D&sntz=1&usg=AFQjCNG5akTTb_MlF5BmoCOmRJTChO_cLQ ) to run the project (additionally you can use Java 8 JDK and SDK but you will need to change the version under project structure when you open it). You will also need H2 downloaded (https://www.google.com/url?q=https%3A%2F%2Fwww.h2database.com%2Fhtml%2Fmain.html&sa=D&sntz=1&usg=AFQjCNE13ZojBzC3TFQrckdHkhQj-cPn-w ) and Scene Builder (https://www.google.com/url?q=https%3A%2F%2Fgluonhq.com%2Fproducts%2Fscene-builder%2F&sa=D&sntz=1&usg=AFQjCNFAj9kP87nkoEPWc9GSwux6cctk0w ). After you install IntelliJ, you can download the project and open the main file. You need to make sure you set up H2 to point to the resource folder. After you have everything set up, you should be able to run the project and see the different styles applied to the GUI.
 
 ## Built With
 
  - IntelliJ - This is a new IDE to me. I only know the basics.
- - Scenebuilder - This is a new software to me. I only know the basics.
- - H2 dadabase builder - This is a new system to me. I only know the basics.
+ - Scene Builder - This is a new software to me. I only know the basics.
+ - H2 database software - This is a new system to me. I only know the basics.
  - Java 8/ Java 11 JDK - Java 8 is better for JavaFX
 
 ## Contributing
@@ -42,12 +42,12 @@ License is in a text file in the repository.
 ## Acknowledgements
 
   - Stackoverflow
-  - Shain, Odalys, Kevin, Nick, Kathryn, Owen
+  - Shane, Odalys, Kevin, Nick, Kathryn, Owen
   - Damian, VanSelow
   
 ## History
 
-The initial commit had just the GUI layout and the ReadMe. After The initial commit, the controller was updated with the button variables. I then made the handleActions for the buttons which are hardcoded to print to the console. I then populated the combobox in the intitialize method after creating the local variable for the combobox. I then added fx:ids to all of the elements in FXML. I then added styles to the GUI using the fx:ids to make each item be a different colour.
+The initial commit had just the GUI layout and the ReadMe. After The initial commit, the controller was updated with the button variables. I then made the handleActions for the buttons which are hardcoded to print to the console. I then populated the combobox in the initialize method after creating the local variable for the combobox. I then added fx:ids to all of the elements in FXML. I then added styles to the GUI using the fx:ids to make each item be a different colour.
 
 ## Key Programming Concepts Utilized
 
