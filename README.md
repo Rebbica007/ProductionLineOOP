@@ -13,7 +13,7 @@ Add an animated gif of your program running. You can use ShareX, GIPHY Capture o
 JavaDoc is in the IDE. 
 
 ## Diagrams
-<a href="https://imgbb.com/%22%3E<img src="https://i.ibb.co/BNLH0Nq/diagrams.png" alt="diagrams" border="0"></a><br /><a target='_blank' href='https://imgbb.com/%27%3Efree picture hosting</a><br />
+https://ibb.co/nCrqxCz
 
 ## Getting Started
 
