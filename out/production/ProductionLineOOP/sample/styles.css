@@ -5,13 +5,14 @@
 
 root {
   display: block;
-  -fx-background-image: url("back.jpg");
 }
 
 /* I have a warning saying the root selector is not used
  * even though I need it to have a background.
  */
-
+.root {
+  -fx-background-image: url("back.jpg");
+}
 
 
 /* Says there is a typo for dropShadow and innerShadow. However, that
