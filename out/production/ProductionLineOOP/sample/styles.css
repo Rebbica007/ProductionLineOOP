@@ -1,0 +1,141 @@
+root {
+  display: block;
+}
+
+.root {
+  -fx-background-image: url("back.jpg");
+}
+
+.button {
+  -fx-effect: dropshadow(three-pass-box, rgba(255, 255, 255, 0.6), 5, 0.0, 0, 1);
+}
+
+/* PRODUCT LINE AREA */
+#productLineTab {
+  -fx-background-color: #60CE6E;
+  -fx-font-size: 12px;
+  -fx-font-weight: bold;
+  -fx-effect: innershadow(three-pass-box, rgba(0, 0, 0, 0.7), 6, 0.0, 0, 2);
+}
+
+#productName {
+  -fx-font-size: 12px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #66DCE1;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 6, 0.0, 0, 1);
+}
+
+#nameBox {
+  -fx-background-color: #3863C7;
+  -fx-text-fill: white;
+  -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.7), 6, 0.0, 0, 1);
+}
+
+#manufacturer {
+  -fx-font-size: 12px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #E6E615;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 6, 0.0, 0, 1);
+}
+
+#manBox {
+  -fx-background-color: #3863C7;
+  -fx-text-fill: white;
+  -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.7), 6, 0.0, 0, 1);
+}
+
+#itemType {
+  -fx-font-size: 12px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #C782E1;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 6, 0.0, 0, 1);
+}
+
+#choiceBox {
+  -fx-background-color: #3863C7;
+  -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.7), 6, 0.0, 0, 1);
+  -fx-text-fill: white;
+}
+
+#AddProduct {
+  -fx-font-family: "Arial Narrow";
+  -fx-font-weight: bold;
+  -fx-text-fill: #5D1FD9;
+  -fx-background-color: #89D0F3;
+  -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.7), 6, 0.0, 0, 1);
+}
+
+#existingProducts {
+  -fx-font-size: 12px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #DC7B0D;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 6, 0.0, 0, 1);
+}
+
+#tableView {
+  -fx-background-color: #A0EFBA;
+  -fx-text-fill: black;
+}
+
+#tableViewProduct {
+  -fx-background-color: #41C46D;
+}
+
+#tableViewAmount {
+  -fx-background-color: #15B249;
+}
+
+/* PRODUCE AREA */
+#produceTab {
+  -fx-background-color: #B26FDF;
+  -fx-font-size: 12px;
+  -fx-font-weight: bold;
+  -fx-effect: innershadow(three-pass-box, rgba(0, 0, 0, 0.7), 6, 0.0, 0, 2);
+}
+
+#chooseProduct {
+  -fx-font-size: 12px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #E15757;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 6, 0.0, 0, 1);
+}
+
+#productList {
+  -fx-background-color: #D7A0EF;
+  -fx-text-fill: black;
+}
+
+#chooseQuantity {
+  -fx-font-size: 12px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #57E16E;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 6, 0.0, 0, 1);
+}
+
+#ProduceCombo {
+  -fx-background-color: #3863C7;
+  -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.7), 6, 0.0, 0, 1);
+  -fx-text-fill: white;
+}
+
+#AddRecord {
+  -fx-background-color: #D039A7;
+  -fx-font-family: "Arial Narrow";
+  -fx-font-weight: bold;
+  -fx-text-fill: #61E1C7;
+  -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.7), 6, 0.0, 0, 1);
+}
+
+/* PRODUCTION LOG AREA */
+#productionLogTab {
+  -fx-background-color: #ECB64B;
+  -fx-font-size: 12px;
+  -fx-font-weight: bold;
+  -fx-effect: innershadow(three-pass-box, rgba(0, 0, 0, 0.7), 6, 0.0, 0, 2);
+}
+
+#productLog {
+  -fx-background-color: #89D0F3;
+}
+
+

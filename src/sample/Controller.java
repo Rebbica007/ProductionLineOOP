@@ -6,22 +6,69 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
+/**
+ * The controller is what allows the GUI to have functionality.
+ */
 public class Controller {
   @FXML public Button AddProduct;
   @FXML private ComboBox<Integer> ProduceCombo;
   @FXML public Button AddRecord;
 
+  /* THE BELOW ARE USED IN MY STYLESHEET AND NEEDED
+  TO BE ADDED TO THE CONTROLLER SINCE THEY ARE
+  FX:IDs
+  */
+  @FXML public TabPane tabPane;
+  @FXML public Tab productLineTab;
+  @FXML public Label productName;
+  @FXML public TextField nameBox;
+  @FXML public TextField manBox;
+  @FXML public ChoiceBox choiceBox;
+  @FXML public Label manufacturer;
+  @FXML public Label itemType;
+  @FXML public TableView tableView;
+  @FXML  public TableColumn tableViewProduct;
+  @FXML  public TableColumn tableViewAmount;
+  @FXML  public Label existingProducts;
+  @FXML  public Tab produceTab;
+  @FXML public Label chooseProduct;
+  @FXML public ListView productList;
+  @FXML public Label chooseQuantity;
+  @FXML public Tab productionLogTab;
+  @FXML public TextArea productLog;
 
+  /**
+   * handleAddButtonAction is the main function for the addProduct button
+   * hard coded to print Product added to the console.
+   */
   public void handleAddButtonAction() {
+
     System.out.println("Product added.");
   }
 
+  /**
+   * handleAddRecordAction is the main function for the addRecord button
+   * hard coded to print Record added to the console window.
+   */
   public void handleAddRecordAction() {
     System.out.println("Record added.");
   }
 
+  /**
+   * the initialize function allows the GUI to connect to the database
+   * Populates the combo box to be populated with values 1-10
+   */
   public void initialize() {
 
     final String JDBC_DRIVER = "org.h2.Driver";
