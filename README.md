@@ -1,17 +1,7 @@
 # ProductionLineOOP
 
-This project is a GUI that allows you to add product names, types and manufactures to the database. 
-
-This project allows me to demonstrate my knowledge on how to handle buttons, add combo boxes and have a choice box. 
-
-I made the project (Jana Grunewald) with help from other students across both COP 3003 - Object-Oriented Programming classes. 
-
-I started this project on 23 September 2019 and has been on going until 28 September 2019. I am at intermediate level with java and at an advanced level with CSS. 
-
-I made this assignment for COP 3003 - Object-Oriented Programming. This assignment reflects me as a person by the way the 
-colours are paired and how the items are displayed. 
-
-I made it partially at school at Florida Gulf Coast University in COP 3003 - Object-Oriented Programming and finished most of it at home.
+This project is a GUI that allows you to add product names, types and manufactures to the database. This project allows me to demonstrate my knowledge on how to handle buttons, add combo boxes and have a choice box. I made the project (Jana Grunewald) with help from other students across both COP 3003 - Object-Oriented Programming classes. I started this project on 23 September 2019 and has been on going until 28 September 2019. I am at intermediate level with java and at an advanced level with CSS. I made this assignment for COP 3003 - Object-Oriented Programming. This assignment reflects me as a person by the way the 
+colours are paired and how the items are displayed. I made it partially at school at Florida Gulf Coast University in COP 3003 - Object-Oriented Programming and finished most of it at home.
 
 ## Demonstration
 
