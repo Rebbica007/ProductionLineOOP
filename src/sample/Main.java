@@ -28,7 +28,7 @@ public class Main extends Application {
 
   /**
    * this is what launches the GUI and allows you to see the functionality
-   *
+   * creates things in memory
    * @param args this is a default function
    */
   public static void main(String[] args) {
