@@ -40,7 +40,7 @@ public class Controller {
   @FXML public Label productName;
   @FXML public TextField nameBox;
   @FXML public TextField manBox;
-  @FXML public ChoiceBox choiceBox;
+  @FXML public ChoiceBox<Enum<ItemType>> choiceBox;
   @FXML public Label manufacturer;
   @FXML public Label itemType;
   @FXML public TableView tableView;
@@ -94,7 +94,7 @@ public class Controller {
 
       // STEP 3: Execute a query
       stmt = conn.createStatement();
-      String sql = "INSERT INTO PRODUCT(NAME,TYPE,MANUFACTURER) VALUES('iPod','AUDIO','Apple')";
+      String sql = "INSERT INTO PRODUCT(NAME,TYPE,MANUFACTURER) VALUES('iPod', 'AUDIO', 'Apple')";
       stmt.executeUpdate(sql);
 
       // STEP 4: Clean-up environment
@@ -111,5 +111,10 @@ public class Controller {
     // makes a drop down menu with numbers 1-10 and you can choose based of the amount you have.
     ProduceCombo.getSelectionModel().selectFirst();
     ProduceCombo.setEditable(true);
+
+    for (ItemType choiceBoxPopulation : ItemType.values()) {
+      choiceBox.getItems().add(choiceBoxPopulation);
+    }
+
   }
 }

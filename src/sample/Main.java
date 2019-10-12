@@ -32,6 +32,12 @@ public class Main extends Application {
    * @param args this is a default function
    */
   public static void main(String[] args) {
+    AudioPlayer newProduct = new AudioPlayer("DP-X1A", "Onkyo", "AUDIO", "DSD/FLAC/ALAC/WAV/AIFF/MQA/Ogg-Vorbis/MP3/AAC", "M3U/PLS/WPL");
+    System.out.println(newProduct);
+    newProduct.play();
+    newProduct.stop();
+    newProduct.next();
+    newProduct.previous();
     launch(args);
   }
 }
