@@ -8,5 +8,4 @@ public interface MultimediaControl {
   void previous();
 
   void next();
-
 }

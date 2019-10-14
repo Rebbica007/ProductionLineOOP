@@ -115,6 +115,5 @@ public class Controller {
     for (ItemType choiceBoxPopulation : ItemType.values()) {
       choiceBox.getItems().add(choiceBoxPopulation);
     }
-
   }
 }

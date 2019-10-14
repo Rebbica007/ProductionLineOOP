@@ -7,8 +7,6 @@ public abstract class Product implements Item {
   private String Manufacturer;
   private String Name;
 
-
-
   Product(String name, String manufacturer, String type) {
     this.Name = name;
     this.Manufacturer = manufacturer;
@@ -16,8 +14,7 @@ public abstract class Product implements Item {
   }
 
   public String toString() {
-    return "Name: " + Name + "\n" + "Manufacturer: " + Manufacturer + "\n" + "Type: "
-        + Type;
+    return "Name: " + Name + "\n" + "Manufacturer: " + Manufacturer + "\n" + "Type: " + Type;
   }
 
   public int getId() {
@@ -42,7 +39,7 @@ public abstract class Product implements Item {
 }
 
 class Widget extends Product {
-  Widget(String name, String manufacturer, String type){
+  Widget(String name, String manufacturer, String type) {
     super(name, manufacturer, type);
   }
 }

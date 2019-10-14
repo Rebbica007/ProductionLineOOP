@@ -27,12 +27,18 @@ public class Main extends Application {
   }
 
   /**
-   * this is what launches the GUI and allows you to see the functionality
-   * creates things in memory
+   * this is what launches the GUI and allows you to see the functionality creates things in memory
+   *
    * @param args this is a default function
    */
   public static void main(String[] args) {
-    AudioPlayer newProduct = new AudioPlayer("DP-X1A", "Onkyo", "AUDIO", "DSD/FLAC/ALAC/WAV/AIFF/MQA/Ogg-Vorbis/MP3/AAC", "M3U/PLS/WPL");
+    AudioPlayer newProduct =
+        new AudioPlayer(
+            "DP-X1A",
+            "Onkyo",
+            "AUDIO",
+            "DSD/FLAC/ALAC/WAV/AIFF/MQA/Ogg-Vorbis/MP3/AAC",
+            "M3U/PLS/WPL");
     System.out.println(newProduct);
     newProduct.play();
     newProduct.stop();
