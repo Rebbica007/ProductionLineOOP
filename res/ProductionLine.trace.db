@@ -1201,3 +1201,9 @@ INSERT INTO PRODUCT (NAME, MANUFACTURER, TYPE) VALUES (?,?,?) [42102-199]
 2019-11-09 08:55:54 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCT" not found; SQL statement:
 INSERT INTO PRODUCT (NAME, MANUFACTURER, TYPE) VALUES (?,?,?) [42102-199]
+2019-11-09 08:57:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCT" not found; SQL statement:
+INSERT INTO PRODUCT (NAME, MANUFACTURER, TYPE) VALUES (?,?,?) [42102-199]
+2019-11-09 08:58:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCT" not found; SQL statement:
+INSERT INTO PRODUCT (NAME, MANUFACTURER, TYPE) VALUES (?,?,?) [42102-199]
