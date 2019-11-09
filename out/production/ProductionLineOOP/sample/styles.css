@@ -7,24 +7,27 @@ root {
   display: block;
 }
 
-/* I have a warning saying the root selector is not used
- * even though I need it to have a background.
- */
 .root {
   -fx-background-image: url("back.jpg");
+  -tab-text-color: #000000;
 }
 
+.tab-label {
+  -fx-text-fill: #000000;
+}
 
-/* Says there is a typo for dropShadow and innerShadow. However, that
- * is the only way to have a drop shadow or inner shadow for the items.
- */
 
 /* PRODUCT LINE AREA */
 #productLineTab {
   -fx-background-color: #60CE6E;
   -fx-font-size: 12px;
   -fx-font-weight: bold;
+  -fx-text-fill: #FFFFFF;
   -fx-effect: innershadow(three-pass-box, rgba(0, 0, 0, 0.7), 6, 0.0, 0, 2);
+}
+
+.tab-pane > .tab-header-area > .tab-header-background {
+  -fx-background-color: #61E1C7;
 }
 
 #productName {
@@ -86,6 +89,7 @@ root {
   -fx-text-fill: black;
 }
 
+/*
 #tableViewProduct {
   -fx-background-color: #41C46D;
 }
@@ -93,7 +97,7 @@ root {
 #tableViewAmount {
   -fx-background-color: #15B249;
 }
-
+*/
 /* PRODUCE AREA */
 #produceTab {
   -fx-background-color: #B26FDF;

@@ -7,8 +7,10 @@ package sample;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -21,69 +23,136 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-/** The controller is what allows the GUI to have functionality. */
-/* warning: Declaration redundancy, says the package could be private
-however, if you make it private, the GUI will not run.
+/**
+ * This method is what makes the gui run properly. All the different interactions within the gui are
+ * controlled through this file.
  */
 public class Controller {
   @FXML public Button AddProduct;
   @FXML private ComboBox<Integer> ProduceCombo;
   @FXML public Button AddRecord;
-
-  /* THE BELOW ARE USED IN MY STYLESHEET AND NEEDED
-  TO BE ADDED TO THE CONTROLLER SINCE THEY ARE
-  FX:IDs
-  */
   @FXML public TabPane tabPane;
   @FXML public Tab productLineTab;
   @FXML public Label productName;
   @FXML public TextField nameBox;
   @FXML public TextField manBox;
-  @FXML public ChoiceBox<Enum<ItemType>> choiceBox;
+  @FXML public ChoiceBox<String> choiceBox;
   @FXML public Label manufacturer;
   @FXML public Label itemType;
-  @FXML public TableView tableView;
-  @FXML public TableColumn tableViewProduct;
-  @FXML public TableColumn tableViewAmount;
+  @FXML public TableView<Product> tableView;
+  @FXML public TableColumn<?, ?> tableViewProduct;
+  @FXML public TableColumn<?, ?> tableViewAmount;
+  @FXML public TableColumn<?, ?> tableViewItemType;
   @FXML public Label existingProducts;
   @FXML public Tab produceTab;
   @FXML public Label chooseProduct;
-  @FXML public ListView productList;
+  @FXML public ListView<Product> productList;
   @FXML public Label chooseQuantity;
   @FXML public Tab productionLogTab;
   @FXML public TextArea productLog;
 
-  /**
-   * handleAddButtonAction is the main function for the addProduct button hard coded to print
-   * Product added to the console.
-   */
-  public void handleAddButtonAction() {
+  // global vars
+  private Connection conn;
 
-    System.out.println("Product added."); // hard codes a response.
+  // observable list used for the table view
+  private final ObservableList<Product> productLine = FXCollections.observableArrayList();
+
+  /**
+   * This method allows the user to insert an item into the database. This also makes the item show
+   * up in the table view below the button.
+   *
+   * @throws SQLException - uses sql to insert data into the database.
+   */
+  public void handleAddButtonAction() throws SQLException {
+
+    // initialise variables
+    String prodName = nameBox.getText();
+    String prodMan = manBox.getText();
+    String prodChoice = choiceBox.getValue();
+
+    // database accepts input from user
+    String information = "INSERT INTO PRODUCT (NAME, MANUFACTURER, TYPE) VALUES (?,?,?)";
+
+    // Prepared statement and connection
+    PreparedStatement prepStat = conn.prepareStatement(information);
+
+    // Prepared statement sets values of name, manufacturer and type
+    prepStat.setString(1, prodName);
+    prepStat.setString(2, prodMan);
+    prepStat.setString(3, prodChoice);
+    prepStat.executeUpdate();
+
+    // print when button is clicked
+    System.out.println("The product has been added.");
+
+    // clear text fields
+    nameBox.clear();
+    manBox.clear();
+
+    // this will show the data in the table view
+    tableViewProduct.setCellValueFactory(new PropertyValueFactory<>("name"));
+    tableViewAmount.setCellValueFactory(new PropertyValueFactory<>("manufacturer"));
+    tableViewItemType.setCellValueFactory(new PropertyValueFactory<>("type"));
+
+    // sets the items to productLine(observableList)
+    tableView.setItems(productLine);
+
+    // uses widget to add values
+    productLine.add(new Widget(prodName, prodMan, ItemType.valueOf(prodChoice)));
+
+    // sets the values from the product line to the list view
+    productList.setItems(productLine);
+
+    // clear environment
+    prepStat.close();
+    conn.close();
   }
 
-  /**
-   * handleAddRecordAction is the main function for the addRecord button hard coded to print Record
-   * added to the console window.
-   */
+  /** This method allows the quantity to be updated in the database. */
   public void handleAddRecordAction() {
-
-    System.out.println("Record added."); // hard codes a response.
+    // print when button is clicked
+    System.out.println("The product has been added.");
   }
 
   /**
-   * the initialize function allows the GUI to connect to the database Populates the combo box to be
-   * populated with values 1-10
+   * This method allows the database to receive items. This also populates the combo boxes and the
+   * choice boxes to allow users to choose an amount and type.
    */
   public void initialize() {
 
+    // call to initialize the database connection
+    initializeData();
+
+    // Observable list to populate combo box
+    ObservableList<Integer> amount =
+        FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+    ProduceCombo.setItems(amount);
+    ProduceCombo.getSelectionModel().selectFirst();
+    ProduceCombo.setEditable(true);
+
+    // enhanced for loop to populate the item choices
+    ObservableList<String> items = FXCollections.observableArrayList();
+    for (ItemType itemChoice : ItemType.values()) {
+      System.out.println(itemChoice + " " + itemChoice.codes);
+      items.add(String.valueOf(itemChoice));
+    }
+
+    // shows all items possible to choose from
+    choiceBox.getItems().addAll(items);
+
+    // display an instance of production record in the text area in the production log tab
+    ProductionRecord productionRec = new ProductionRecord(0);
+    String product = productionRec.toString();
+    productLog.setText(product);
+  }
+
+  /** This method sets up the database and stores the data. */
+  private void initializeData() {
     final String JDBC_DRIVER = "org.h2.Driver";
     final String DB_URL = "jdbc:h2:./res/ProductionLine";
-
-    //  Database credentials
-    Connection conn;
-    Statement stmt;
 
     try {
       // STEP 1: Register JDBC driver
@@ -91,29 +160,8 @@ public class Controller {
 
       // STEP 2: Open a connection
       conn = DriverManager.getConnection(DB_URL);
-
-      // STEP 3: Execute a query
-      stmt = conn.createStatement();
-      String sql = "INSERT INTO PRODUCT(NAME,TYPE,MANUFACTURER) VALUES('iPod', 'AUDIO', 'Apple')";
-      stmt.executeUpdate(sql);
-
-      // STEP 4: Clean-up environment
-      stmt.close();
-      conn.close();
-
     } catch (ClassNotFoundException | SQLException e) {
       e.printStackTrace();
-    }
-    // populates the combo box
-    for (int i = 0; i <= 10; i++) {
-      ProduceCombo.getItems().add(i);
-    }
-    // makes a drop down menu with numbers 1-10 and you can choose based of the amount you have.
-    ProduceCombo.getSelectionModel().selectFirst();
-    ProduceCombo.setEditable(true);
-
-    for (ItemType choiceBoxPopulation : ItemType.values()) {
-      choiceBox.getItems().add(choiceBoxPopulation);
     }
   }
 }

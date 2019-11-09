@@ -17,7 +17,9 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/10.0.2"
+<!--  @author - Jana Grunewald @class - COP 3003 - Object-Oriented Programming @date created - 23 September 2019 -->
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1"
   xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
   <columnConstraints>
     <ColumnConstraints/>
@@ -53,13 +55,14 @@
         <Button fx:id="AddProduct" layoutX="161.0" layoutY="124.0" mnemonicParsing="false"
           onAction="#handleAddButtonAction" text="Add Product"/>
         <TableView fx:id="tableView" layoutX="30.0" layoutY="192.0" prefHeight="129.0"
-          prefWidth="216.0">
+          prefWidth="301.0">
           <columns>
-            <TableColumn fx:id="tableViewProduct" prefWidth="75.0" text="Product"/>
-            <TableColumn fx:id="tableViewAmount" prefWidth="75.0" text="Amount"/>
+            <TableColumn fx:id="tableViewProduct" prefWidth="109.0" text="Product"/>
+            <TableColumn fx:id="tableViewAmount" prefWidth="98.0" text="Amount"/>
+            <TableColumn fx:id="tableViewItemType" prefWidth="93.0" text="Item Type"/>
           </columns>
         </TableView>
-        <Label fx:id="existingProducts" layoutX="83.0" layoutY="165.0" prefHeight="17.0"
+        <Label fx:id="existingProducts" layoutX="163.0" layoutY="165.0" prefHeight="17.0"
           prefWidth="109.0" text="Existing Products:"/>
       </AnchorPane>
     </Tab>
@@ -76,8 +79,8 @@
     </Tab>
     <Tab fx:id="productionLogTab" text="Production Log">
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-        <TextArea fx:id="productLog" layoutX="14.0" layoutY="14.0" prefHeight="200.0"
-          prefWidth="200.0"/>
+        <TextArea fx:id="productLog" layoutX="14.0" layoutY="14.0" prefHeight="317.0"
+          prefWidth="397.0"/>
       </AnchorPane>
     </Tab>
   </TabPane>
@@ -85,4 +88,3 @@
     <URL value="@styles.css"/>
   </stylesheets>
 </GridPane>
-  <!--  @author - Jana Grunewald @class - COP 3003 - Object-Oriented Programming @date created - 23 September 2019 -->
