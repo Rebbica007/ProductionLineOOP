@@ -113,7 +113,7 @@ public class Controller {
   /** This method allows the quantity to be updated in the database. */
   public void handleAddRecordAction() {
     // print when button is clicked
-    System.out.println("The product has been added.");
+    System.out.println("The record has been added.");
   }
 
   /**
