@@ -186,3 +186,7 @@ org.h2.jdbc.JdbcSQLException: Feature not supported: "getFunctionColumns" [50100
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:834)
+2019-11-17 21:51:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-199]
+2019-11-17 21:51:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-199]
