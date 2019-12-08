@@ -7,7 +7,7 @@ colours are paired and how the items are displayed. I made it partially at schoo
 
 ![](oop3003.gif)
 
-![](demo.gif)
+![](oopdemo.gif)
 
 
 ## Documentation
