@@ -15,7 +15,7 @@ colours are paired and how the items are displayed. I made it partially at schoo
 JavaDoc is in the IDE. 
 
 ## Diagrams
-
+Picture does not want to load. It's in the repository though. Under classcrap.png
 ![](classcrap.png)
 
 ## Getting Started
