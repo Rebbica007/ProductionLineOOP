@@ -16,7 +16,7 @@ JavaDoc is in the IDE.
 
 ## Diagrams
 
-<img src="https://i.ibb.co/BNLH0Nq/diagrams.png" alt="diagrams" border="0"></a>
+<img src="classcrap.png" alt="diagrams" border="0"></a>
 
 ## Getting Started
 
