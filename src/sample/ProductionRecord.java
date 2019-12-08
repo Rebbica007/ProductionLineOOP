@@ -24,8 +24,10 @@ class ProductionRecord {
   private ItemType Type;
 
   /**
-   * @param item
-   * @param amount
+   * This method gets the items and the number of the product being added.
+   *
+   * @param item   - this is the item name.
+   * @param amount - this is how many of the item is being recorded.
    */
   public ProductionRecord(Product item, int amount) {
     this.productID = item.getId();
@@ -78,14 +80,18 @@ class ProductionRecord {
   }
 
   /**
-   * @return
+   * This method gets the manufacturer of the product.
+   *
+   * @return - this returns the manufacturer
    */
   public String getManufacturer() {
     return Manufacturer;
   }
 
   /**
-   * @param manufacturer
+   * This method sets the manufacturer of the product.
+   *
+   * @param manufacturer - sets the manufacturer
    */
   public void setManufacturer(String manufacturer) {
     Manufacturer = manufacturer;
@@ -164,28 +170,36 @@ class ProductionRecord {
   }
 
   /**
-   * @return
+   * This method gets the amount of the object being returned.
+   *
+   * @return - returns the amount
    */
   public int getAmount() {
     return amount;
   }
 
   /**
-   * @param amount
+   * This method sets the amount of the objects being added.
+   *
+   * @param amount - this is an integer number for the number of products.
    */
   public void setAmount(int amount) {
     this.amount = amount;
   }
 
   /**
-   * @return
+   * This method gets the product type.
+   *
+   * @return - returns the product type
    */
   public ItemType getType() {
     return Type;
   }
 
   /**
-   * @param type
+   * This method sets the product type.
+   *
+   * @param type - this links to the item type enum.
    */
   public void setType(ItemType type) {
     Type = type;

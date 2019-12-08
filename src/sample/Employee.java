@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- *
+ * This class creates the employee username, name, password, and email.
  */
 public class Employee {
 
@@ -21,8 +21,10 @@ public class Employee {
   String email;
 
   /**
-   * @param name
-   * @param password
+   * This checks to make sure the username is correct.
+   *
+   * @param name     - this sets the name of the employee
+   * @param password - this sets the password of the employee.
    */
   public Employee(String name, String password) {
     this.name = new StringBuilder(name);
@@ -42,7 +44,9 @@ public class Employee {
   }
 
   /**
-   * @param name
+   * This method sets the employee.
+   *
+   * @param name - name of the employee.
    */
   private void setUsername(String name) {
 
@@ -57,8 +61,10 @@ public class Employee {
   }
 
   /**
-   * @param name
-   * @return
+   * This method checks to see if the employee name is in the database.
+   *
+   * @param name - this is the employee name
+   * @return - checks to see if the employee is in the system.
    */
   private boolean checkName(String name) {
     Pattern pattern = Pattern.compile("\\s");
@@ -68,7 +74,9 @@ public class Employee {
   }
 
   /**
-   * @param name
+   * This method sets the email of the employee.
+   *
+   * @param name - gets the name of the employee and adds the email extension
    */
   private void setEmail(String name) {
 
@@ -86,8 +94,10 @@ public class Employee {
   }
 
   /**
-   * @param password
-   * @return
+   * This method checks to see if the password is valid.
+   *
+   * @param password - creates a secure way to login
+   * @return - makes sure the password is stored in the database
    */
   private boolean isValidPassword(String password) {
 
@@ -99,7 +109,9 @@ public class Employee {
   }
 
   /**
-   * @return
+   * This method creates a string for the employee.
+   *
+   * @return - returns the employee credentials.
    */
   public String toString() {
     return "Employee Details\n"

@@ -18,8 +18,10 @@ public abstract class Product implements Item {
   private String manufacturer;
 
   /**
-   * @param Name
-   * @param Manufacturer
+   * This method calls the name of the manufacturer and the product.
+   *
+   * @param Name         - product name
+   * @param Manufacturer - manufacturer name
    */
   public Product(String Name, String Manufacturer) {
     name = Name;
@@ -83,7 +85,7 @@ public abstract class Product implements Item {
   /**
    * This method will set the id of the product.
    *
-   * @param id -
+   * @param id - sets a unique id for the products added.
    */
   public void setId(int id) {
     this.Id = id;
@@ -127,7 +129,7 @@ public abstract class Product implements Item {
 }
 
 /**
- *
+ * This class makes crazy things happen.
  */
 class Widget extends Product {
 
@@ -137,13 +139,15 @@ class Widget extends Product {
   }
 
   /**
-   * @param rsId
-   * @param rsName
-   * @param rsManufactuer
-   * @param ItemType
+   * This method is part of the crazy things.
+   *
+   * @param dbId          - database id
+   * @param dbName        - database name
+   * @param dbManufactuer - database manufacturer
+   * @param ItemType      - database item type
    */
-  public Widget(int rsId, String rsName, String rsManufactuer, ItemType ItemType) {
-    super(rsName, rsManufactuer, ItemType);
-    setId(rsId);
+  public Widget(int dbId, String dbName, String dbManufactuer, ItemType ItemType) {
+    super(dbName, dbManufactuer, ItemType);
+    setId(dbId);
   }
 }
