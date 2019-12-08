@@ -1,6 +1,14 @@
+/**
+ * Allows the user to add items to a database shows the usage of the database and linking other
+ * information in it.
+ *
+ * @author Jana Grunewald
+ */
 package sample;
 
-/** This method will display the different audio types for the product. */
+/**
+ * This method will display the different audio types for the product.
+ */
 public class AudioPlayer extends Product implements MultimediaControl {
 
   private String audioSpecification;
@@ -9,19 +17,15 @@ public class AudioPlayer extends Product implements MultimediaControl {
   /**
    * This method will display the name, manufacturer, type, audio and media type to the console.
    *
-   * @param name - sets the name of the product.
-   * @param manufacturer - sets the name of the manufacturer.
-   * @param type - sets the type of product.
+   * @param name               - sets the name of the product.
+   * @param manufacturer       - sets the name of the manufacturer.
    * @param audioSpecification - sets the audio specifications.
-   * @param mediaType - sets the media type.
+   * @param mediaType          - sets the media type.
    */
-  AudioPlayer(
-      String name,
-      String manufacturer,
-      ItemType type,
-      String audioSpecification,
-      String mediaType) {
-    super(name, manufacturer, type);
+  public AudioPlayer(
+      String name, String manufacturer, String audioSpecification, String mediaType) {
+    super(name, manufacturer);
+    this.setType(ItemType.AUDIO);
     this.audioSpecification = audioSpecification;
     this.mediaType = mediaType;
   }
@@ -32,27 +36,35 @@ public class AudioPlayer extends Product implements MultimediaControl {
    * @return - will return the name, manufacturer, type, audio and media type.
    */
   public String toString() {
-    String spec = "\nSupported Audio Formats: " + this.audioSpecification + '\n';
+    String spec = "Supported Audio Formats: " + this.audioSpecification + '\n';
     String media = "Supported Playlist Formats: " + this.mediaType;
     return super.toString() + spec + media;
   }
 
-  /** This method will display if the user played the program. */
+  /**
+   * This method will display if the user played the program.
+   */
   public void play() {
     System.out.println("Playing");
   }
 
-  /** This method will display if the user stopped the program. */
+  /**
+   * This method will display if the user stopped the program.
+   */
   public void stop() {
     System.out.println("Stopping");
   }
 
-  /** This method will display if the user skipped to the next audio. */
+  /**
+   * This method will display if the user skipped to the next audio.
+   */
   public void next() {
     System.out.println("Next");
   }
 
-  /** This method will display if the user went back to the previous audio. */
+  /**
+   * This method will display if the user went back to the previous audio.
+   */
   public void previous() {
     System.out.println("Previous");
   }

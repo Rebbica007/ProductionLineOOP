@@ -1,16 +1,22 @@
+/**
+ * Allows the user to add items to a database shows the usage of the database and linking other
+ * information in it.
+ *
+ * @author Jana Grunewald
+ */
+
 package sample;
 
 /**
  * ItemType allows the choice box to be populated with four different codes to determine what type
  * of product is being inserted into the database.
  */
-public enum ItemType {
+enum ItemType {
   AUDIO("AU"),
   VISUAL("VI"),
   AUDIO_MOBILE("AM"),
   VISUAL_MOBILE("VM");
-
-  public final String codes;
+  private String codes;
 
   /**
    * This sets codes to code. This helps with when you are populating the database.
@@ -27,7 +33,7 @@ public enum ItemType {
    *
    * @return codes - this makes sure the item type gets populated.
    */
-  public String getCodes() {
-    return this.codes;
+  public String codes() {
+    return codes;
   }
 }

@@ -1,7 +1,15 @@
+/**
+ * Allows the user to add items to a database shows the usage of the database and linking other
+ * information in it.
+ *
+ * @author Jana Grunewald
+ */
+
 package sample;
 
 /**
- * This method sets the different methods that will be used in displaying the screen specifications.
+ * This method sets the different methods that will be used in displaying the screen
+ * specifications.
  */
 public interface ScreenSpec {
 

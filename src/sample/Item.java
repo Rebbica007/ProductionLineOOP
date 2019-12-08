@@ -1,7 +1,23 @@
+/**
+ * Allows the user to add items to a database shows the usage of the database and linking other
+ * information in it.
+ *
+ * @author Jana Grunewald
+ */
+
 package sample;
 
-/** This method sets the methods for name, manufacturer and type. */
+/**
+ * This method sets the methods for name, manufacturer and type.
+ */
 public interface Item {
+
+  /**
+   * This method gets the id of the product.
+   *
+   * @return - will return the id of the product.
+   */
+  int getId();
 
   /**
    * This method sets the name of the product.
@@ -30,18 +46,4 @@ public interface Item {
    * @return - returns the manufacturer's name.
    */
   String getManufacturer();
-
-  /**
-   * This method gets the type of product.
-   *
-   * @return - returns the type of product.
-   */
-  ItemType getType();
-
-  /**
-   * This method sets the type of product.
-   *
-   * @param type - displays the type of product.
-   */
-  void setType(ItemType type);
 }

@@ -1,16 +1,15 @@
-/* @author - Jana Grunewald
- * @class - COP 3003 - Object-Oriented Programming
- * @date created - 23 September 2019
+/**
+ * Allows the user to add items to a database shows the usage of the database and linking other
+ * information in it.
+ *
+ * @author Jana Grunewald
  */
 
 package sample;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import javafx.event.ActionEvent;
+import java.util.ArrayList;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -23,6 +22,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import java.sql.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
@@ -30,90 +30,205 @@ import javafx.scene.control.cell.PropertyValueFactory;
  * controlled through this file.
  */
 public class Controller {
-  @FXML public Button AddProduct;
-  @FXML private ComboBox<Integer> ProduceCombo;
-  @FXML public Button AddRecord;
-  @FXML public TabPane tabPane;
-  @FXML public Tab productLineTab;
-  @FXML public Label productName;
-  @FXML public TextField nameBox;
-  @FXML public TextField manBox;
-  @FXML public ChoiceBox<String> choiceBox;
-  @FXML public Label manufacturer;
-  @FXML public Label itemType;
-  @FXML public TableView<Product> tableView;
-  @FXML public TableColumn<?, ?> tableViewProduct;
-  @FXML public TableColumn<?, ?> tableViewAmount;
-  @FXML public TableColumn<?, ?> tableViewItemType;
-  @FXML public Label existingProducts;
-  @FXML public Tab produceTab;
-  @FXML public Label chooseProduct;
-  @FXML public ListView<Product> productList;
-  @FXML public Label chooseQuantity;
-  @FXML public Tab productionLogTab;
-  @FXML public TextArea productLog;
 
-  // global vars
+  @FXML
+  public Tab productLineTab;
+
+  @FXML
+  public Tab produceTab;
+
+  @FXML
+  public Tab productionLogTab;
+
+  @FXML
+  public TextField nameBox;
+
+  @FXML
+  public TextField manBox;
+
+  @FXML
+  public Label itemType;
+
+  @FXML
+  public TabPane tabPane;
+
+  @FXML
+  private Label productName;
+
+  @FXML
+  private Label manufacturer;
+
+  @FXML
+  public Label existingProducts;
+
+  @FXML
+  public Label chooseProduct;
+
+  @FXML
+  public Label chooseQuantity;
+
+  @FXML
+  public ListView<Product> productList;
+
+  @FXML
+  public ChoiceBox<ItemType> choiceBox;
+
+  @FXML
+  public Button AddProduct;
+
+  @FXML
+  private TableColumn<?, ?> tableViewProductId;
+
+  @FXML
+  public TableColumn<?, ?> tableViewProduct;
+
+  @FXML
+  public TableColumn<?, ?> tableViewType;
+
+  @FXML
+  public TableColumn<?, ?> tableViewManufacturer;
+
+  @FXML
+  public TableView tableView;
+
+  @FXML
+  public Button AddRecord;
+
+  @FXML
+  public ComboBox<Integer> ProduceCombo;
+
+  @FXML
+  public Button logButton;
+
+  @FXML
+  public TextArea productLog;
   private Connection conn;
 
-  // observable list used for the table view
-  private final ObservableList<Product> productLine = FXCollections.observableArrayList();
-
   /**
-   * This method allows the user to insert an item into the database. This also makes the item show
-   * up in the table view below the button.
+   * This method will add the item to the table view.
    *
-   * @throws SQLException - uses sql to insert data into the database.
+   * @param event - just a variable name generated with the handle.
    */
-  public void handleAddButtonAction() throws SQLException {
+  public void handleAddButtonAction(ActionEvent event) {
 
-    // initialise variables
-    String prodName = nameBox.getText();
-    String prodMan = manBox.getText();
-    String prodChoice = choiceBox.getValue();
+    String itemTypeString = choiceBox.getValue().toString(); // audio
+    String manufacturerString = manufacturer.getText(); // friend
+    String nameString = productName.getText(); // favorite
 
-    // database accepts input from user
-    String information = "INSERT INTO PRODUCT (NAME, MANUFACTURER, TYPE) VALUES (?,?,?)";
+    try {
+      Statement stmt = conn.createStatement();
 
-    // Prepared statement and connection
-    PreparedStatement prepStat = conn.prepareStatement(information);
+      // "INSERT INTO Product (type, manufacturer, name) VALUES ('mytype', 'manufactuer', 'name')"
+      String sql =
+          "INSERT INTO Product(type, manufacturer, name)"
+              + "VALUES ('"
+              + itemTypeString
+              + "', '"
+              + manufacturerString
+              + "', '"
+              + nameString
+              + "')";
+      stmt.executeUpdate(sql);
+      tableView.setItems(FXCollections.observableArrayList(productsAdded()));
+    } catch (SQLException | NullPointerException e) {
+      // System.out.println("the handleAddProductAction catch worked!");
+      // e.printStackTrace();
 
-    // Prepared statement sets values of name, manufacturer and type
-    prepStat.setString(1, prodName);
-    prepStat.setString(2, prodMan);
-    prepStat.setString(3, prodChoice);
-    prepStat.executeUpdate();
-
-    // print when button is clicked
-    System.out.println("The product has been added.");
-
-    // clear text fields
-    nameBox.clear();
-    manBox.clear();
-
-    // this will show the data in the table view
-    tableViewProduct.setCellValueFactory(new PropertyValueFactory<>("name"));
-    tableViewAmount.setCellValueFactory(new PropertyValueFactory<>("manufacturer"));
-    tableViewItemType.setCellValueFactory(new PropertyValueFactory<>("type"));
-
-    // sets the items to productLine(observableList)
-    tableView.setItems(productLine);
-
-    // uses widget to add values
-    productLine.add(new Widget(prodName, prodMan, ItemType.valueOf(prodChoice)));
-
-    // sets the values from the product line to the list view
-    productList.setItems(productLine);
-
-    // clear environment
-    prepStat.close();
-    conn.close();
+      System.out.println("This is from the catch!");
+    }
   }
 
-  /** This method allows the quantity to be updated in the database. */
-  public void handleAddRecordAction() {
-    // print when button is clicked
-    System.out.println("The record has been added.");
+  /**
+   * This method adds the items to the log on the last tab.
+   *
+   * @param event - just a variable name generated with the handle.
+   */
+  public void handleGetLogAction(ActionEvent event) {
+    ArrayList<Product> products = productsAdded();
+    for (Product product : products) {
+      productLog.appendText(product.toString());
+    }
+  }
+
+  /**
+   * This method allows the quantity to be updated in the database.
+   */
+  public void handleAddRecordAction(ActionEvent event) {
+    int i = ProduceCombo.getValue();
+    for (int j = 0; j < i; j++) {
+      System.out.println(
+          "Item Produced: \n"
+              + (j + 1)
+              + " "
+              + productList.getSelectionModel().getSelectedItem()
+              + "\n");
+    }
+    productList.setItems(FXCollections.observableArrayList(productsAdded()));
+  }
+
+  /**
+   * This method connects to the database.
+   */
+  public void connectToDB() {
+    // JDBC driver name and database URL
+    final String JDBC_DRIVER = "org.h2.Driver";
+    final String DB_URL = "jdbc:h2:./res/ProductionLine";
+
+    //  Database credentials
+    final String USER = "";
+    final String PASS = "";
+
+    conn = null;
+
+    Statement stmt = null;
+    try {
+      // STEP 2: Register JDBC driver
+      Class.forName(JDBC_DRIVER);
+
+      // STEP 3: Open a connection
+      System.out.println("Connecting to a selected database...");
+      conn = DriverManager.getConnection(DB_URL, "admin", "admin");
+      System.out.println("Connected database successfully...");
+    } catch (Exception se) {
+      se.printStackTrace();
+    }
+  }
+
+  /**
+   * This method adds all the products to the table view.
+   *
+   * @return - will return all the products added.
+   */
+  public ArrayList<Product> productsAdded() {
+    ArrayList<Product> products = new ArrayList<>();
+    try {
+      Statement smt = conn.createStatement();
+      String sql = "SELECT * FROM PRODUCT";
+      ResultSet resultSet = smt.executeQuery(sql);
+      while (resultSet.next()) {
+        int rsId = resultSet.getInt("ID");
+        String rsName = resultSet.getString("NAME");
+        String rsType = resultSet.getString("TYPE");
+        String rsManufactuer = resultSet.getString("MANUFACTURER");
+        ItemType ItemType;
+        if (rsType.equals("AUDIO")) {
+          ItemType = sample.ItemType.AUDIO;
+        } else if (rsType.equals("VISUAL")) {
+          ItemType = sample.ItemType.VISUAL;
+        } else if (rsType.equals("AUDIO_MOBILE")) {
+          ItemType = sample.ItemType.AUDIO_MOBILE;
+        } else if (rsType.equals("VISUAL_MOBILE")) {
+          ItemType = sample.ItemType.VISUAL_MOBILE;
+        } else {
+          ItemType = null;
+        }
+        Widget a = new Widget(rsId, rsName, rsManufactuer, ItemType);
+        products.add(a);
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    return products;
   }
 
   /**
@@ -121,47 +236,44 @@ public class Controller {
    * choice boxes to allow users to choose an amount and type.
    */
   public void initialize() {
+    connectToDB();
+    testMultimedia();
+    productsAdded();
+    ArrayList<Product> products = productsAdded();
+    tableView.setItems(FXCollections.observableArrayList(productsAdded()));
+    productList.setItems(FXCollections.observableArrayList(productsAdded()));
+    tableViewProductId.setCellValueFactory(new PropertyValueFactory<>("Id"));
+    tableViewType.setCellValueFactory(new PropertyValueFactory<>("Type"));
+    tableViewProduct.setCellValueFactory(new PropertyValueFactory<>("name"));
+    tableViewManufacturer.setCellValueFactory(new PropertyValueFactory<>("manufacturer"));
 
-    // call to initialize the database connection
-    initializeData();
-
-    // Observable list to populate combo box
-    ObservableList<Integer> amount =
-        FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-
-    ProduceCombo.setItems(amount);
-    ProduceCombo.getSelectionModel().selectFirst();
-    ProduceCombo.setEditable(true);
-
-    // enhanced for loop to populate the item choices
-    ObservableList<String> items = FXCollections.observableArrayList();
-    for (ItemType itemChoice : ItemType.values()) {
-      System.out.println(itemChoice + " " + itemChoice.codes);
-      items.add(String.valueOf(itemChoice));
+    for (Product product : products) {
+      productLog.appendText(product.toString());
     }
 
-    // shows all items possible to choose from
-    choiceBox.getItems().addAll(items);
-
-    // display an instance of production record in the text area in the production log tab
-    ProductionRecord productionRec = new ProductionRecord(0);
-    String product = productionRec.toString();
-    productLog.setText(product);
+    choiceBox.setItems(FXCollections.observableArrayList(ItemType.values()));
+    ProduceCombo.setItems(FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
   }
 
-  /** This method sets up the database and stores the data. */
-  private void initializeData() {
-    final String JDBC_DRIVER = "org.h2.Driver";
-    final String DB_URL = "jdbc:h2:./res/ProductionLine";
-
-    try {
-      // STEP 1: Register JDBC driver
-      Class.forName(JDBC_DRIVER);
-
-      // STEP 2: Open a connection
-      conn = DriverManager.getConnection(DB_URL);
-    } catch (ClassNotFoundException | SQLException e) {
-      e.printStackTrace();
+  /**
+   * This method tests the multimedia aspect of the application.
+   */
+  public static void testMultimedia() {
+    AudioPlayer newAudioProduct =
+        new AudioPlayer(
+            "DP-X1A", "Onkyo", "DSD/FLAC/ALAC/WAV/AIFF/MQA/Ogg-Vorbis/MP3/AAC", "M3U/PLS/WPL");
+    Screen newScreen = new Screen("720x480", 40, 22);
+    MoviePlayer newMovieProduct =
+        new MoviePlayer("DBPOWER MK101", "OracleProduction", newScreen, MonitorType.LCD);
+    ArrayList<MultimediaControl> productList = new ArrayList<MultimediaControl>();
+    productList.add(newAudioProduct);
+    productList.add(newMovieProduct);
+    for (MultimediaControl p : productList) {
+      System.out.println(p);
+      p.play();
+      p.stop();
+      p.next();
+      p.previous();
     }
   }
 }

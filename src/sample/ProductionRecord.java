@@ -1,3 +1,10 @@
+/**
+ * Allows the user to add items to a database shows the usage of the database and linking other
+ * information in it.
+ *
+ * @author Jana Grunewald
+ */
+
 package sample;
 
 import java.util.Date;
@@ -6,23 +13,41 @@ import java.util.Date;
  * This method sets the production number, the id, the serial number and the date the item was added
  * to the database.
  */
-public class ProductionRecord {
+class ProductionRecord {
+
+  private String Manufacturer;
   private int productionNumber;
   private int productID;
   private String serialNumber;
-  private Date dateProduced;
+  private Date dateProduced = new Date();
+  private int amount;
+  private ItemType Type;
 
   /**
-   * This method will increment the product id with the different items that are added.
-   *
-   * @param productProduced - puts the number of the product being produced.
-   * @param items - sets the number of the id and increments.
+   * @param item
+   * @param amount
    */
-  public ProductionRecord(Product productProduced, int items) {
-    String id = String.format("%05d", items);
-    // formats and sets cereal number
+  public ProductionRecord(Product item, int amount) {
+    this.productID = item.getId();
+    this.Manufacturer = item.getManufacturer();
+    this.amount = amount;
+    Type = item.getType();
     this.serialNumber =
-        productProduced.Manufacturer.substring(0, 3) + productProduced.getType().getCodes() + id;
+        this.Manufacturer.substring(0, 3) + item.getType().codes() + "0000" + this.amount;
+  }
+
+  /**
+   * This method will put in the id, serial number, item number and the date into the dataase.
+   *
+   * @param item - adds a production number to the item.
+   */
+  public ProductionRecord(Product item) {
+    this.productID = item.getId();
+    this.Manufacturer = item.getManufacturer();
+    this.amount = amount;
+    Type = item.getType();
+    this.serialNumber =
+        this.Manufacturer.substring(0, 3) + item.getType().codes() + "0000" + this.amount;
   }
 
   /**
@@ -31,26 +56,9 @@ public class ProductionRecord {
    * @param productID - displays the id.
    */
   public ProductionRecord(int productID) {
-    this.productID = productID;
     productionNumber = 0;
     serialNumber = "0";
-    dateProduced = new Date();
-  }
-
-  /**
-   * This method will put in the id, serial number, product number and the date into the dataase.
-   *
-   * @param productionNumber - adds a production number to the product.
-   * @param productID - displays the id for the product.
-   * @param serialNumber - displays the serial number for the product.
-   * @param dateProduced - displays the date and time the item was added to the database.
-   */
-  public ProductionRecord(
-      int productionNumber, int productID, String serialNumber, Date dateProduced) {
-    this.productID = productID;
-    this.productionNumber = productionNumber;
-    this.dateProduced = dateProduced;
-    this.serialNumber = serialNumber;
+    Date dateProduced = new Date();
   }
 
   /**
@@ -61,12 +69,26 @@ public class ProductionRecord {
   public String toString() {
     return "Prod. Num: "
         + productionNumber
-        + " \nProduct ID: "
+        + " Product ID: "
         + productID
-        + " \nSerial Num: "
+        + " Serial Num: "
         + serialNumber
-        + " \nDate: "
+        + " Date: "
         + dateProduced;
+  }
+
+  /**
+   * @return
+   */
+  public String getManufacturer() {
+    return Manufacturer;
+  }
+
+  /**
+   * @param manufacturer
+   */
+  public void setManufacturer(String manufacturer) {
+    Manufacturer = manufacturer;
   }
 
   /**
@@ -74,7 +96,7 @@ public class ProductionRecord {
    *
    * @return - will return the production number.
    */
-  public int getProductionNum() {
+  public int getProductionNumber() {
     return productionNumber;
   }
 
@@ -83,7 +105,7 @@ public class ProductionRecord {
    *
    * @param productionNumber - will display a number.
    */
-  public void setProductionNum(int productionNumber) {
+  public void setProductionNumber(int productionNumber) {
     this.productionNumber = productionNumber;
   }
 
@@ -110,7 +132,7 @@ public class ProductionRecord {
    *
    * @return - will return the serial number.
    */
-  public String getSerialNum() {
+  public String getSerialNumber() {
     return serialNumber;
   }
 
@@ -119,7 +141,7 @@ public class ProductionRecord {
    *
    * @param serialNumber - will display the serial number of the product.
    */
-  public void setSerialNum(String serialNumber) {
+  public void setSerialNumber(String serialNumber) {
     this.serialNumber = serialNumber;
   }
 
@@ -128,7 +150,7 @@ public class ProductionRecord {
    *
    * @return - will return the date.
    */
-  public Date getProdDate() {
+  public Date getDateProduced() {
     return dateProduced;
   }
 
@@ -137,7 +159,35 @@ public class ProductionRecord {
    *
    * @param dateProduced - will display the date.
    */
-  public void setProdDate(Date dateProduced) {
+  public void setDateProduced(Date dateProduced) {
     this.dateProduced = dateProduced;
+  }
+
+  /**
+   * @return
+   */
+  public int getAmount() {
+    return amount;
+  }
+
+  /**
+   * @param amount
+   */
+  public void setAmount(int amount) {
+    this.amount = amount;
+  }
+
+  /**
+   * @return
+   */
+  public ItemType getType() {
+    return Type;
+  }
+
+  /**
+   * @param type
+   */
+  public void setType(ItemType type) {
+    Type = type;
   }
 }

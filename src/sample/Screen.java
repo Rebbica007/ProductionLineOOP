@@ -1,7 +1,17 @@
+/**
+ * Allows the user to add items to a database shows the usage of the database and linking other
+ * information in it.
+ *
+ * @author Jana Grunewald
+ */
+
 package sample;
 
-/** This method will tell you the specifications of the screen you are using. */
+/**
+ * This method will tell you the specifications of the screen you are using.
+ */
 public class Screen implements ScreenSpec {
+
   private String Resolution;
   private int RefreshRate;
   private int ResponseTime;
@@ -10,8 +20,8 @@ public class Screen implements ScreenSpec {
    * This method will display the different settings for a screen. Resolution, refresh rate and
    * response time.
    *
-   * @param resolution - Will return from the monitor type enum.
-   * @param refreshRate - will return an int.
+   * @param resolution   - Will return from the monitor type enum.
+   * @param refreshRate  - will return an int.
    * @param responseTime - will return an int.
    */
   Screen(String resolution, int refreshRate, int responseTime) {
